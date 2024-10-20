@@ -1,53 +1,55 @@
 // src/components/Navbar.tsx
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar: React.FC = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // To toggle the main menu
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // To toggle the dropdown
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
+  const closeMenu = () => setIsOpen(false);
+
+  const toggleDropdown = () => setIsDropdownOpen((prev) => !prev);
 
   return (
     <nav className="navbar">
       <div className="app-title">
-        <h1>Health App</h1> {/* แสดงชื่อแอป */}
+        <h1>Health App</h1>
       </div>
-      <div className="dropdown-container">
-        <button onClick={toggleDropdown} className="dropbtn">
-          <i className="fa fa-bars" aria-hidden="true"></i>{" "}
-          {/* ไอคอน dropdown */}
-        </button>
-        {dropdownOpen && (
-          <div className="dropdown-content">
-            <a href="/">Home</a>
-            <a href="/bmr-tdee">BMR & TDEE</a>
-            <a href="/meal-plan">Meal Plan</a>
-            <a href="/nutrition-info">Nutrition Info</a>
+      <ul className={`nav-links ${isOpen ? "open" : ""}`}>
+        <li>
+          <Link to="/" onClick={closeMenu}>
+            Home
+          </Link>
+        </li>
+        <li className="dropdown">
+          <button
+            onClick={toggleDropdown}
+            className="dropbtn"
+            aria-haspopup="true"
+            aria-expanded={isDropdownOpen}
+          >
+            More
+          </button>
+          <div className={`dropdown-content ${isDropdownOpen ? "show" : ""}`}>
+            <Link to="/bmr-tdee" onClick={closeMenu}>
+              BMR & TDEE
+            </Link>
+            <Link to="/meal-plan" onClick={closeMenu}>
+              Meal Plan
+            </Link>
+            <Link to="/nutrition-info" onClick={closeMenu}>
+              Nutrition Info
+            </Link>
           </div>
-        )}
-      </div>
-      <ul className="nav-links">
-        <li>
-          <a href="/">Home</a>
         </li>
-        <li>
-          <a href="/bmr-tdee">
-            <i className="fa fa-calculator" aria-hidden="true"></i> BMR & TDEE
-          </a>
-        </li>
-        <li>
-          <a href="/meal-plan">
-            <i className="fa fa-cutlery" aria-hidden="true"></i> Meal Plan
-          </a>
-        </li>
-        <li>
-          <a href="/nutrition-info">
-            <i className="fa fa-info-circle" aria-hidden="true"></i> Nutrition
-            Info
-          </a>
-        </li>
+        <button
+          className="close-btn"
+          onClick={closeMenu}
+          aria-label="Close menu"
+        >
+          &times;
+        </button>
       </ul>
     </nav>
   );

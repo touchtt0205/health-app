@@ -1,88 +1,109 @@
 /* src/components/Navbar.css */
 .navbar {
-    display: flex; /* ใช้ Flexbox */
-    justify-content: space-between; /* จัดเรียงระหว่างชื่อแอปและ dropdown */
-    align-items: center; /* จัดกลาง */
-    background-color: #16423C; /* สีพื้นหลัง */
+    background-color: #16423C; /* Background color */
     padding: 1rem; /* Padding */
-    position: relative; /* ตั้งตำแหน่งให้เป็น relative */
-    z-index: 10; /* เพื่อให้แน่ใจว่ามันอยู่ด้านบนสุด */
+    position: relative; /* Positioning */
+    z-index: 10; /* Ensure it’s on top */
 }
 
 .app-title h1 {
-    color: #E9EFEC; /* สีตัวอักษร */
-    margin: 0; /* ลบ margin */
+    margin: 0; /* Remove default margin */
+    color: #E9EFEC; /* Title color */
 }
 
-.dropdown-container {
-    position: relative; /* ใช้สำหรับ dropdown */
-}
-
+/* Navigation links */
 .nav-links {
-    list-style: none; /* ลบจุดจากลิสต์ */
-    display: flex; /* ใช้ Flexbox */
-    justify-content: center; /* จัดให้อยู่กลาง */
-    gap: 2rem; /* ช่องว่างระหว่างลิงค์ */
+    list-style: none; /* Remove bullets */
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center alignment */
+    gap: 2rem; /* Space between links */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+}
+
+.nav-links.open {
+    display: flex; /* Show when open */
 }
 
 .nav-links li {
-    position: relative; /* ใช้สำหรับ dropdown */
+    position: relative; /* For dropdown positioning */
 }
 
-.nav-links a {
-    color: #E9EFEC; /* สีตัวอักษร */
-    text-decoration: none; /* ไม่มีเส้นใต้ */
-    font-weight: bold; /* ตัวหนา */
+.nav-links a, .dropbtn {
+    color: #E9EFEC; /* Text color */
+    text-decoration: none; /* No underline */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s ease; /* Transition for color */
 }
 
-.nav-links a:hover {
-    text-decoration: underline; /* เส้นใต้เมื่อ hover */
+.nav-links a:hover, .dropbtn:hover {
+    color: #D0E0E6; /* Change color on hover */
 }
 
-/* Style สำหรับ dropdown */
+/* Style for dropdown */
 .dropdown-content {
-    display: none; /* ซ่อน dropdown */
-    position: absolute; /* ตั้งตำแหน่งของ dropdown */
-    background-color: #6A9C89; /* สีพื้นหลัง */
-    min-width: 160px; /* ความกว้างขั้นต่ำ */
-    z-index: 1; /* จัดระดับ */
+    display: none; /* Hidden by default */
+    position: absolute; /* Absolute positioning */
+    background-color: #6A9C89; /* Dropdown background */
+    min-width: 160px; /* Minimum width */
+    z-index: 1; /* Layering */
+    top: 100%; /* Position it below the button */
+    left: 0; /* Align to the left */
 }
 
-.dropdown-container:hover .dropdown-content {
-    display: block; /* แสดง dropdown เมื่อ hover */
+.dropdown:hover .dropdown-content, 
+.dropdown-content.show {
+    display: block; /* Show dropdown on hover or toggle */
 }
 
 .dropdown-content a {
-    color: #E9EFEC; /* สีตัวอักษร */
+    color: #E9EFEC; /* Text color */
     padding: 12px 16px; /* Padding */
-    text-decoration: none; /* ไม่มีเส้นใต้ */
-    display: block; /* จัดเรียงในบล็อก */
+    text-decoration: none; /* No underline */
+    display: block; /* Block display */
 }
 
 .dropdown-content a:hover {
-    background-color: #16423C; /* เปลี่ยนสีเมื่อ hover */
+    background-color: #16423C; /* Change color on hover */
+}
+
+/* Close button */
+.close-btn {
+    background: none; /* No background */
+    border: none; /* No border */
+    color: #E9EFEC; /* Close button color */
+    font-size: 1.5rem; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    display: none; /* Hide on larger screens */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-links {
-        display: none; /* ซ่อนเมนูเมื่ออยู่ในมือถือ */
+        flex-direction: column; /* Column alignment */
+        align-items: center; /* Center align */
+        display: none; /* Hide links by default */
     }
 
-    .dropdown-container {
-        display: flex; /* แสดง dropdown container */
+    .nav-links.open {
+        display: flex; /* Show links when open */
+    }
+
+    .nav-links li {
+        margin: 5px 0; /* Space between links */
     }
 
     .dropbtn {
-        background: none; /* ไม่มีพื้นหลัง */
-        border: none; /* ไม่มีขอบ */
-        color: #E9EFEC; /* สีตัวอักษร */
-        font-weight: bold; /* ตัวหนา */
-        cursor: pointer; /* เปลี่ยนเป็น pointer */
-        font-size: 24px; /* ขนาดตัวอักษร */
+        display: block; /* Show dropdown button */
+        background: none; /* No background */
+        border: none; /* No border */
+        color: #E9EFEC; /* Text color */
+        font-weight: bold; /* Bold text */
+        cursor: pointer; /* Pointer cursor */
     }
 
-    .dropdown-content {
-        display: block; /* แสดง dropdown เมื่อกด */
+    .close-btn {
+        display: block; /* Show close button on mobile */
+        margin: 1rem 0; /* Space around close button */
     }
 }
