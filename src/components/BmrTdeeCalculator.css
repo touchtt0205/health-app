@@ -1,0 +1,51 @@
+/* src/components/BmrTdeeCalculator.css */
+/* src/components/BmrTdeeCalculator.css */
+.bmr-calculator {
+    background-color: #C4DAD2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+
+
+
+.bmr-calculator input,
+.bmr-calculator select,
+.bmr-calculator button {
+    display: block;
+    margin: 10px auto; /* จัดกลาง */
+    padding: 10px;
+    width: 80%; /* 80% ของความกว้าง */
+    max-width: 400px; /* สูงสุด 400px */
+    border: 1px solid #6A9C89; /* ขอบ */
+    border-radius: 4px; /* มุมโค้ง */
+    font-size: 16px; /* ขนาดตัวอักษร */
+}
+
+.bmr-calculator button {
+    background-color: #16423C; /* สีปุ่ม */
+    color: #E9EFEC; /* สีตัวอักษรในปุ่ม */
+    border: none; /* ไม่มีขอบ */
+    cursor: pointer; /* เปลี่ยนเป็น pointer */
+}
+
+.bmr-calculator button:hover {
+    background-color: #6A9C89; /* เปลี่ยนสีเมื่อ hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bmr-calculator {
+        padding: 15px;
+    }
+
+    .bmr-calculator input,
+    .bmr-calculator select,
+    .bmr-calculator button {
+        width: 90%; /* ทำให้กว้างขึ้นในหน้าจอเล็ก */
+    }
+}

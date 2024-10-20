@@ -1,0 +1,18 @@
+/* สร้างไฟล์ src/index.css ถ้ายังไม่มี */
+body, html {
+  margin: 0; /* ลบ margin ออกจาก body */
+  padding: 0; /* ลบ padding ออกจาก body */
+  height: 100%; /* ตั้งความสูงให้เต็ม */
+  width: 100%; /* ตั้งความกว้างให้เต็ม */
+  box-sizing: border-box; /* ทำให้การคำนวณขนาดรวม border และ padding */
+  font-family: Arial, sans-serif; /* ฟอนต์ */
+}
+
+/* ทำให้เนื้อหาดูดี */
+.content {
+  display: flex; /* ใช้ Flexbox */
+  flex-direction: column; /* วางเนื้อหาในแนวตั้ง */
+  align-items: center; /* จัดกลาง */
+  justify-content: center; /* จัดกลาง */
+  height: calc(100% - 60px); /* ปรับความสูงเพื่อลดความสูง Navbar */
+}

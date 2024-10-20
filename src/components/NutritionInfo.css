@@ -1,0 +1,20 @@
+.nutrition-info {
+    background-color: #C4DAD2;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.nutrition-info h2 {
+    color: #16423C; /* สีหัวข้อ */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nutrition-info {
+        padding: 15px; /* ปรับ Padding */
+    }
+}

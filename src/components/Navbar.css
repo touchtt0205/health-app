@@ -1,0 +1,88 @@
+/* src/components/Navbar.css */
+.navbar {
+    display: flex; /* ใช้ Flexbox */
+    justify-content: space-between; /* จัดเรียงระหว่างชื่อแอปและ dropdown */
+    align-items: center; /* จัดกลาง */
+    background-color: #16423C; /* สีพื้นหลัง */
+    padding: 1rem; /* Padding */
+    position: relative; /* ตั้งตำแหน่งให้เป็น relative */
+    z-index: 10; /* เพื่อให้แน่ใจว่ามันอยู่ด้านบนสุด */
+}
+
+.app-title h1 {
+    color: #E9EFEC; /* สีตัวอักษร */
+    margin: 0; /* ลบ margin */
+}
+
+.dropdown-container {
+    position: relative; /* ใช้สำหรับ dropdown */
+}
+
+.nav-links {
+    list-style: none; /* ลบจุดจากลิสต์ */
+    display: flex; /* ใช้ Flexbox */
+    justify-content: center; /* จัดให้อยู่กลาง */
+    gap: 2rem; /* ช่องว่างระหว่างลิงค์ */
+}
+
+.nav-links li {
+    position: relative; /* ใช้สำหรับ dropdown */
+}
+
+.nav-links a {
+    color: #E9EFEC; /* สีตัวอักษร */
+    text-decoration: none; /* ไม่มีเส้นใต้ */
+    font-weight: bold; /* ตัวหนา */
+}
+
+.nav-links a:hover {
+    text-decoration: underline; /* เส้นใต้เมื่อ hover */
+}
+
+/* Style สำหรับ dropdown */
+.dropdown-content {
+    display: none; /* ซ่อน dropdown */
+    position: absolute; /* ตั้งตำแหน่งของ dropdown */
+    background-color: #6A9C89; /* สีพื้นหลัง */
+    min-width: 160px; /* ความกว้างขั้นต่ำ */
+    z-index: 1; /* จัดระดับ */
+}
+
+.dropdown-container:hover .dropdown-content {
+    display: block; /* แสดง dropdown เมื่อ hover */
+}
+
+.dropdown-content a {
+    color: #E9EFEC; /* สีตัวอักษร */
+    padding: 12px 16px; /* Padding */
+    text-decoration: none; /* ไม่มีเส้นใต้ */
+    display: block; /* จัดเรียงในบล็อก */
+}
+
+.dropdown-content a:hover {
+    background-color: #16423C; /* เปลี่ยนสีเมื่อ hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* ซ่อนเมนูเมื่ออยู่ในมือถือ */
+    }
+
+    .dropdown-container {
+        display: flex; /* แสดง dropdown container */
+    }
+
+    .dropbtn {
+        background: none; /* ไม่มีพื้นหลัง */
+        border: none; /* ไม่มีขอบ */
+        color: #E9EFEC; /* สีตัวอักษร */
+        font-weight: bold; /* ตัวหนา */
+        cursor: pointer; /* เปลี่ยนเป็น pointer */
+        font-size: 24px; /* ขนาดตัวอักษร */
+    }
+
+    .dropdown-content {
+        display: block; /* แสดง dropdown เมื่อกด */
+    }
+}
